@@ -186,7 +186,7 @@ void AD7193::Calibrate(void) {
 void AD7193::WaitForADC(void)  {
     int breakTime = 0;
 
-    Serial.print("\nWaiting for Conversion");
+//    Serial.print("\nWaiting for Conversion");
 
     while(1){
       if (digitalRead(AD7193_RDY_STATE) == 0){      // Break if ready goes low
