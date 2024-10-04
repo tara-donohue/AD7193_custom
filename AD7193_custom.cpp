@@ -1,6 +1,6 @@
 /*blah blah*/
 
-#include <AD7193.h>
+#include <AD7193_custom.h>
 
 // default register settings
 unsigned long registerMap[4] = {
