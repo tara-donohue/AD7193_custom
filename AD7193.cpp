@@ -43,6 +43,26 @@ bool AD7193::begin(void) {
   //LibrarySerial = &serialPort; //Grab which port the user wants us to use
 }
 
+void AD7193::SetDataRate()  {
+
+  Serial.print("\nSetting PGA Gain to ");
+  Serial.println(gain);
+  
+//  unsigned long gainSetting;
+
+
+  int regAddress = AD7193_REG_MODE;
+
+  //registerMap[regAddress] &= 0xFFFFF8; //keep all bit values except gain bits
+ // registerMap[regAddress] |= gainSetting;
+
+
+// Clear the specific bits you want to keep and set others to zero
+  registerMap[regAddress] &= 0xFFFFFC; // Clear the gain bits (assuming you want to keep the two least significant bits as 0)
+  registerMap[regAddress] |= 0x00000001; // Set the least significant bit to 1 (which represents the decimal value of 1)
+
+  SetRegisterValue(regAddress, registerMap[regAddress], registerSize[regAddress], 1);
+}
 
 void AD7193::Reset(void)  {
   Serial.println("\nReset AD7193...");
