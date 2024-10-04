@@ -76,7 +76,7 @@ void AD7193::SetDataRate(void)  {
 
 // Clear the specific bits you want to keep and set others to zero
   registerMap[regAddress] &= 0xFFFFFC; // Clear the gain bits (assuming you want to keep the two least significant bits as 0)
-  registerMap[regAddress] |= 0x00000001; // Set the least significant bit to 1 (which represents the decimal value of 1)
+  registerMap[regAddress] |= 0x00011100; // Set the least significant bit to 1 (which represents the decimal value of 1)
 
   SetRegisterValue(regAddress, registerMap[regAddress], registerSize[regAddress], 1);
 }
