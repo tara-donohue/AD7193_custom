@@ -176,7 +176,7 @@ void AD7193::Calibrate(void) {
 
   SetRegisterValue(1, registerMap[1], 3, 0);  // overwriting previous MODE reg setting 
 
-  WaitForADC();
+ // WaitForADC();
   //delay(100);
 
   digitalWrite(AD7193_CS_PIN, HIGH);
@@ -186,7 +186,7 @@ void AD7193::Calibrate(void) {
 void AD7193::WaitForADC(void)  {
     int breakTime = 0;
 
-//    Serial.print("\nWaiting for Conversion");
+    Serial.print("\nWaiting for Conversion");
 
     while(1){
       if (digitalRead(AD7193_RDY_STATE) == 0){      // Break if ready goes low
