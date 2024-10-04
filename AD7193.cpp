@@ -176,7 +176,7 @@ void AD7193::Calibrate(void) {
 
   SetRegisterValue(1, registerMap[1], 3, 0);  // overwriting previous MODE reg setting 
 
- // WaitForADC();
+  WaitForADC();
   //delay(100);
 
   digitalWrite(AD7193_CS_PIN, HIGH);
@@ -261,7 +261,7 @@ unsigned long AD7193::ReadADCChannel(int channel)  {
   //  //delay(100); // hardcoded wait time for data to be ready
     // should scale the wait time by averaging
 
- //   WaitForADC();
+    WaitForADC();
     
     unsigned long ADCdata = ReadADCData();
  //   delay(10);
