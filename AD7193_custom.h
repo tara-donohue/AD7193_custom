@@ -41,6 +41,7 @@ public:
 	void Calibrate(void);
 
 	void SetPGAGain(int gain);
+	void SetDataRate(void);
 	void SetAveraging(int filterRate);
 	void SetChannel(int channel);
 	
