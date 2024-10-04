@@ -209,7 +209,7 @@ void AD7193::IntitiateSingleConversion(void) {
 
   // Begin Communication cycle, bring CS low manually
   digitalWrite(AD7193_CS_PIN, LOW);
-  delay(100);
+//  delay(1);
   
   registerMap[1] &= 0x1FFFFF; //keep all bit values except Channel bits
   registerMap[1] |= 0x200000; // single conversion mode bits  
@@ -249,7 +249,7 @@ void AD7193::SetChannel(int channel) {
 
     // write channel selected to Configuration register
     SetRegisterValue(2, registerMap[2], registerSize[2], 1);
-    delay(10);
+  //  delay(1);
 }
 
 unsigned long AD7193::ReadADCChannel(int channel)  {
@@ -258,17 +258,17 @@ unsigned long AD7193::ReadADCChannel(int channel)  {
 
     // write command to initial conversion
     IntitiateSingleConversion();
-    //delay(100); // hardcoded wait time for data to be ready
+  //  //delay(100); // hardcoded wait time for data to be ready
     // should scale the wait time by averaging
 
     WaitForADC();
     
     unsigned long ADCdata = ReadADCData();
-    delay(10);
+ //   delay(10);
 
     // end communication cycle, bringing CS pin High manually 
     digitalWrite(AD7193_CS_PIN, HIGH);
-    delay(10);
+  //  delay(10);
 
     return(ADCdata);
 }
