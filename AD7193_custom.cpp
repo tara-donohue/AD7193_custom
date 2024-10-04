@@ -43,7 +43,7 @@ bool AD7193::begin(void) {
   //LibrarySerial = &serialPort; //Grab which port the user wants us to use
 }
 
-void AD7193::SetDataRate()  {
+void AD7193::SetDataRate(void)  {
 
   Serial.print("\nSetting PGA Gain to ");
   Serial.println(gain);
