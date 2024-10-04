@@ -261,7 +261,7 @@ unsigned long AD7193::ReadADCChannel(int channel)  {
   //  //delay(100); // hardcoded wait time for data to be ready
     // should scale the wait time by averaging
 
-    WaitForADC();
+ //   WaitForADC();
     
     unsigned long ADCdata = ReadADCData();
  //   delay(10);
