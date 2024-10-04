@@ -39,9 +39,10 @@ public:
 	bool begin(void);
 	void Reset(void);
 	void Calibrate(void);
+	void SetDataRate(void);
+
 
 	void SetPGAGain(int gain);
-	void SetDataRate(void);
 	void SetAveraging(int filterRate);
 	void SetChannel(int channel);
 	
