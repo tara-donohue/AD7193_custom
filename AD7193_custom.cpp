@@ -43,10 +43,27 @@ bool AD7193::begin(void) {
   //LibrarySerial = &serialPort; //Grab which port the user wants us to use
 }
 
+
+
+void AD7193::Reset(void)  {
+  Serial.println("\nReset AD7193...");
+
+  digitalWrite(AD7193_CS_PIN, LOW);
+  delay(100);
+
+  char i = 0;
+  for(i = 0; i < 6; i++)
+  {
+    SPI.transfer(0xFF);
+  }    
+  digitalWrite(AD7193_CS_PIN, HIGH);
+  delay(100);
+}
+
 void AD7193::SetDataRate(void)  {
 
   Serial.print("\nSetting PGA Gain to ");
-  Serial.println(gain);
+  Serial.println("1");
   
 //  unsigned long gainSetting;
 
@@ -62,21 +79,6 @@ void AD7193::SetDataRate(void)  {
   registerMap[regAddress] |= 0x00000001; // Set the least significant bit to 1 (which represents the decimal value of 1)
 
   SetRegisterValue(regAddress, registerMap[regAddress], registerSize[regAddress], 1);
-}
-
-void AD7193::Reset(void)  {
-  Serial.println("\nReset AD7193...");
-
-  digitalWrite(AD7193_CS_PIN, LOW);
-  delay(100);
-
-  char i = 0;
-  for(i = 0; i < 6; i++)
-  {
-    SPI.transfer(0xFF);
-  }    
-  digitalWrite(AD7193_CS_PIN, HIGH);
-  delay(100);
 }
 
 void AD7193::SetPGAGain(int gain)  {
