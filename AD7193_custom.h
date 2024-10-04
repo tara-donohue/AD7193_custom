@@ -1,6 +1,6 @@
 /* blah blah */
-#ifndef AD7193_custom_h
-#define AD7193_custom_h
+#ifndef AD7193
+#define AD7193
 
 #include <Arduino.h>
 #include <SPI.h>
